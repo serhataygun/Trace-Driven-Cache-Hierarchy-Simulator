@@ -36,3 +36,8 @@ typedef struct {
 
 /* parser.c */
 TraceEntry *parse_trace_file(const char *path, long *count);
+
+/* analysis.c */
+void print_summary(Cache *l1, Cache *l2, HierarchyMode hmode, ReplacementPolicy rpol, 
+                   WritePolicy wpol, const char *tracefile, const Stats *s1, 
+                   const Stats *s2, long total_entries);
