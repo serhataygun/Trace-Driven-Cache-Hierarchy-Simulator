@@ -1,14 +1,7 @@
+#include "cache.h"
 #include <stdio.h>
 #include <stdlib.h>
-
-#define COL_RESET  "\033[0m"
-#define COL_RED    "\033[31m"
-
-typedef struct {
-    char op;
-    long addr;
-    int  size;
-} TraceEntry;
+#include <string.h>
 
 TraceEntry *parse_trace_file(const char *path, long *count)
 {
