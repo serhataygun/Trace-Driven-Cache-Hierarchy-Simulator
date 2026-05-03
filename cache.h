@@ -41,3 +41,9 @@ TraceEntry *parse_trace_file(const char *path, long *count);
 void print_summary(Cache *l1, Cache *l2, HierarchyMode hmode, ReplacementPolicy rpol, 
                    WritePolicy wpol, const char *tracefile, const Stats *s1, 
                    const Stats *s2, long total_entries);
+
+/* engine.c */
+Cache *cache_init(int s, int E, int b, ReplacementPolicy rpol, WritePolicy wpol, const char *name);
+void cache_free(Cache *c);
+int cache_access(Cache *c, long addr, int is_write, Stats *st);
+void cache_invalidate(Cache *c, long addr);
