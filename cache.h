@@ -27,6 +27,37 @@ typedef enum { HIER_L1_ONLY = 0, HIER_INCLUSIVE, HIER_EXCLUSIVE } HierarchyMode;
 /* data structers */
 
 typedef struct {
+    int  valid;
+    int  dirty;
+    long tag;
+    int  order;
+} CacheLine;
+
+typedef struct {
+    CacheLine *lines;
+    int        fifo_counter;
+} CacheSet;
+
+typedef struct {
+    int       s, E, b;
+    int       S, B;
+    CacheSet *sets;
+    ReplacementPolicy rpol;
+    WritePolicy       wpol;
+    const char       *name;
+} Cache;
+
+typedef struct {
+    long hits;
+    long misses;
+    long evictions;
+    long dirty_evictions;
+    long total;
+    long write_accesses;
+    long read_accesses;
+} Stats;
+
+typedef struct {
     char op;
     long addr;
     int  size;
@@ -47,3 +78,5 @@ Cache *cache_init(int s, int E, int b, ReplacementPolicy rpol, WritePolicy wpol,
 void cache_free(Cache *c);
 int cache_access(Cache *c, long addr, int is_write, Stats *st);
 void cache_invalidate(Cache *c, long addr);
+
+#endif
