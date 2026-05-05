@@ -89,7 +89,7 @@ void print_summary(Cache *l1, Cache *l2, HierarchyMode hmode, ReplacementPolicy 
     printf(COL_BOLD COL_CYAN
            "╔══════════════════════════════════════════════════════╗\n"
            "║     Trace-Driven Cache Hierarchy Simulator           ║\n"
-           "║     Computer Architecture – Spring 2025              ║\n"
+           "║     Computer Architecture – Spring 2026              ║\n"
            "╚══════════════════════════════════════════════════════╝\n"
            COL_RESET);
 
