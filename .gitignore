@@ -1,4 +1,3 @@
 cache_sim
 *.o
-
-trace.txt
+*.txt
